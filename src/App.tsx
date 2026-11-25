@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Linkedin, ArrowRight, ArrowDown, Heart, Images, X } from "lucide-react";
+import { Mail, Linkedin, ArrowRight, ArrowDown, Heart } from "lucide-react";
 import { LangProvider, useLang } from "@/useLang";
 
 function Nav() {
@@ -203,86 +203,9 @@ function About() {
                 </motion.div>
               ))}
             </div>
-            <a
-              href="#photos"
-              className="mt-6 inline-flex items-center gap-2 rounded-full border-2 border-ink bg-magenta px-5 py-2.5 font-display font-bold text-sm text-white shadow-[3px_3px_0_0_#1a1a1a] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0_0_#1a1a1a]"
-            >
-              <Images className="h-4 w-4" />
-              {t.about.photosButton}
-              <ArrowRight className="h-4 w-4" />
-            </a>
           </div>
         </motion.div>
       </div>
-    </section>
-  );
-}
-
-function Photos() {
-  const { t } = useLang();
-  const [activePhoto, setActivePhoto] = useState<number | null>(null);
-  const photos = [
-    { src: "/photos/tempImagevZ6UGL.jpg", alt: "Krystal in Sydney" },
-    { src: "/photos/tempImagetof1o4.jpg", alt: "Krystal outdoors" },
-    { src: "/photos/tempImagehW1tUA.jpg", alt: "Krystal by the water" },
-    { src: "/photos/tempImageCPwkgU.jpg", alt: "Sydney coastline" },
-    { src: "/photos/tempImageMkTb6K.jpg", alt: "Krystal at a lookout" },
-  ];
-
-  return (
-    <section id="photos" className="scroll-mt-24 px-4 py-16 sm:px-8 sm:py-24">
-      <div className="mx-auto max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-8 flex items-end justify-between gap-4"
-        >
-          <div className="rounded-xl border-[3px] border-ink bg-magenta px-4 py-2 shadow-[4px_4px_0_0_#1a1a1a]">
-            <p className="font-mono text-xs text-white/70">01.5 / {t.about.photosLabel.toUpperCase()}</p>
-            <h3 className="font-display text-2xl font-extrabold text-white sm:text-3xl">
-              {t.about.photosLabel}
-            </h3>
-          </div>
-          <span className="hidden font-mono text-xs text-ink/50 sm:block">SYDNEY · 2026</span>
-        </motion.div>
-
-        <div className="grid auto-rows-[180px] grid-cols-2 gap-3 sm:auto-rows-[240px] sm:gap-5 md:grid-cols-4">
-          {photos.map((photo, index) => (
-            <motion.button
-              key={photo.src}
-              type="button"
-              onClick={() => setActivePhoto(index)}
-              initial={{ opacity: 0, y: 20, rotate: index % 2 === 0 ? -1 : 1 }}
-              whileInView={{ opacity: 1, y: 0, rotate: index % 2 === 0 ? -1 : 1 }}
-              whileHover={{ y: -6, rotate: 0, scale: 1.02 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
-              className={`group relative overflow-hidden rounded-2xl border-[3px] border-ink bg-cream text-left shadow-[5px_5px_0_0_#1a1a1a] ${index === 0 ? "col-span-2 row-span-2" : index === 3 ? "col-span-2" : ""}`}
-              aria-label={`${t.about.photosLabel} ${index + 1}`}
-            >
-              <img src={photo.src} alt={photo.alt} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-              <span className="absolute bottom-3 left-3 rounded-full border-2 border-ink bg-yellow px-3 py-1 font-mono text-[10px] font-bold text-ink">
-                0{index + 1}
-              </span>
-            </motion.button>
-          ))}
-        </div>
-      </div>
-
-      {activePhoto !== null && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/90 p-4" role="dialog" aria-modal="true">
-          <button
-            type="button"
-            onClick={() => setActivePhoto(null)}
-            className="absolute right-4 top-4 rounded-full border-2 border-white bg-magenta p-2 text-white transition hover:bg-yellow hover:text-ink"
-            aria-label="Close photo"
-          >
-            <X className="h-5 w-5" />
-          </button>
-          <img src={photos[activePhoto].src} alt={photos[activePhoto].alt} className="max-h-[88vh] max-w-full rounded-2xl border-[3px] border-white object-contain shadow-[8px_8px_0_0_#ffd54f]" />
-        </div>
-      )}
     </section>
   );
 }
@@ -474,7 +397,6 @@ function AppInner() {
       <Nav />
       <Hero />
       <About />
-      <Photos />
       <Work />
       <MarqueeTape />
       <Volunteer />

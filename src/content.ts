@@ -21,8 +21,6 @@ export const content = {
     about: {
       title: "关于我",
       body: "悉尼大学商科研究生在读，专注于用数据驱动市场分析与财务审计。擅长用 Excel 把杂乱的数据整理成可读、可追踪的结论，也喜欢在品牌竞争里寻找别人没看到的机会。抗压能力强、学东西快，擅长团队合作，喜欢和不同背景的人一起把事情做好。",
-      photosButton: "看看我的照片",
-      photosLabel: "照片",
     },
     skills: {
       title: "技能 & 工具",
@@ -90,8 +88,6 @@ export const content = {
     about: {
       title: "About me",
       body: "Postgraduate Commerce student at the University of Sydney, focused on data-driven market analysis and financial audit. I'm good at turning messy data into clear, trackable conclusions with Excel, and I love finding the opportunities others miss in brand competition. I work well under pressure, pick things up fast, and thrive in collaborative teams.",
-      photosButton: "See my photos",
-      photosLabel: "Photos",
     },
     skills: {
       title: "Skills & Tools",
